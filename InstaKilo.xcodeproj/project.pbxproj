@@ -14,6 +14,7 @@
 		2C2FDE922047462A00A93F59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FDE902047462A00A93F59 /* LaunchScreen.storyboard */; };
 		2C2FDE952047462A00A93F59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2FDE942047462A00A93F59 /* main.m */; };
 		2C2FDE9D20474EAE00A93F59 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2FDE9C20474EAE00A93F59 /* CollectionViewCell.m */; };
+		2C2FDEA320476C5000A93F59 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2FDEA220476C5000A93F59 /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		2C2FDE942047462A00A93F59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C2FDE9B20474EAE00A93F59 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		2C2FDE9C20474EAE00A93F59 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		2C2FDEA120476C5000A93F59 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		2C2FDEA220476C5000A93F59 /* Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		2C2FDE842047462A00A93F59 /* InstaKilo */ = {
 			isa = PBXGroup;
 			children = (
+				2C2FDEA120476C5000A93F59 /* Image.h */,
+				2C2FDEA220476C5000A93F59 /* Image.m */,
 				2C2FDE852047462A00A93F59 /* AppDelegate.h */,
 				2C2FDE862047462A00A93F59 /* AppDelegate.m */,
 				2C2FDE882047462A00A93F59 /* ViewController.h */,
@@ -151,6 +156,7 @@
 				2C2FDE952047462A00A93F59 /* main.m in Sources */,
 				2C2FDE9D20474EAE00A93F59 /* CollectionViewCell.m in Sources */,
 				2C2FDE872047462A00A93F59 /* AppDelegate.m in Sources */,
+				2C2FDEA320476C5000A93F59 /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

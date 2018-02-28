@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController () <UICollectionViewDataSource>
 
 @end
@@ -34,6 +35,12 @@
   
   UICollectionViewFlowLayout * cVLayout = [self layoutSetup];
   self.collectionView.collectionViewLayout = cVLayout;
+  
+  NSMutableArray *imageMutableArray = [[NSMutableArray alloc] init];
+  for (int i = 0; i < 10; i++) {
+    [imageMutableArray addObject:[NSString stringWithFormat: @"gts%d", i]];
+    NSLog(@"added gts%d", i);
+  }
 }
 
 
@@ -74,7 +81,6 @@
       break;
   }
       CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-      
       return cell;
 }
 

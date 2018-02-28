@@ -13,7 +13,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -47,6 +46,9 @@
                                             <constraint firstItem="sfK-rE-B7g" firstAttribute="leading" secondItem="Erp-iF-iwn" secondAttribute="leading" id="Sut-fQ-ALR"/>
                                             <constraint firstAttribute="bottom" secondItem="sfK-rE-B7g" secondAttribute="bottom" id="m20-FU-NMq"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="sfK-rE-B7g" id="bam-Lh-Z9f"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -64,6 +66,7 @@
                         <outlet property="collectionView" destination="fht-Aj-Vvm" id="VOf-dN-nzr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
