@@ -141,22 +141,25 @@ NSMutableArray *location1Array;
   CollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                      withReuseIdentifier:@"MyHeaderView"
                                                                             forIndexPath:indexPath];
+  Image * tempImage;
   switch (self.segmentedControl.selectedSegmentIndex) {
     case 0:
-      if (indexPath.section == 0) {
-//        [subjectMasterArray objectAtIndex:indexPath.section];
-        headerView.headerLabel.text = @"Subject 0";
-      } else {
-        headerView.headerLabel.text = @"Subject 1";
-      }
+//      if (indexPath.section == 0) {
+        tempImage = [[subjectMasterArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        headerView.headerLabel.text = tempImage.subject;
+//      } else {
+//        headerView.headerLabel.text = @"Subject 1";
+//      }
       break;
     case 1:
-      if (indexPath.section == 0) {
+      tempImage = [[locationMasterArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+      headerView.headerLabel.text = tempImage.location;
+//      if (indexPath.section == 0) {
         //        [subjectMasterArray objectAtIndex:indexPath.section];
-        headerView.headerLabel.text = @"Location 0";
-      } else {
-        headerView.headerLabel.text = @"Location 1";
-      }
+//        headerView.headerLabel.text = @"Location 0";
+//      } else {
+//        headerView.headerLabel.text = @"Location 1";
+//      }
       break;
     default:
       headerView.headerLabel.text = @"Subject 0";
