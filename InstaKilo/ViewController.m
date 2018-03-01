@@ -26,6 +26,10 @@
   cVLayout.footerReferenceSize = CGSizeMake(self.collectionView.frame.size.width, 10);
   return cVLayout;
 }
+- (IBAction)segmentedControlChanged:(id)sender {
+  self.segmentIndex = self.segmentedControl.selectedSegmentIndex;
+  [self.collectionView reloadData ];
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -92,6 +96,15 @@
 //  cell.imageView.backgroundColor = [UIColor blueColor];
   
       return cell;
+}
+
+// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+  CollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                     withReuseIdentifier:@"MyHeaderView"
+                                                                            forIndexPath:indexPath];
+  headerView.headerLabel.text = [NSString stringWithFormat:@"%lu", self.segmentedControl.selectedSegmentIndex];
+  return headerView;
 }
 
 @end
