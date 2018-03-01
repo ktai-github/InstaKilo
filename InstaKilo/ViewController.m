@@ -90,23 +90,48 @@ NSMutableArray *location1Array;
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  NSString *cellId;
-  switch (indexPath.section) {
-    case 0:
-      cellId = @"myPics";
-      break;
-    case 1:
-      cellId = @"myPics2";
-      break;
-    default:
-      cellId = @"myPics";
-      break;
-  }
+  NSString *cellId = @"myPics";
+//  switch (indexPath.section) {
+//    case 0:
+//      cellId = @"myPics";
+//      break;
+//    case 1:
+//      cellId = @"myPics2";
+//      break;
+//    default:
+//      cellId = @"myPics";
+//      break;
+//  }
+
+
   NSLog(@"%@", cellId);
   NSLog(@"section %ld, row %ld", (long)indexPath.section, (long)indexPath.row);
+  
   CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
   
-  cell.imageView.image = [UIImage imageNamed:@"gts0"];
+//  cell.imageView.image = [UIImage imageNamed:@"gts0"];
+  Image * tempImage;
+  switch (self.segmentedControl.selectedSegmentIndex) {
+    case 0:
+//      if (indexPath.section == 0) {
+      tempImage = [[subjectMasterArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+       cell.imageView.image = [UIImage imageNamed: tempImage.imageName];
+//      } else {
+        //cell.imageView.image = [subject1Array objectAtIndex:indexPath.row];
+//      }
+      break;
+    case 1:
+//      if (indexPath.section == 0) {
+       tempImage = [[locationMasterArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+      cell.imageView.image = [UIImage imageNamed: tempImage.imageName];
+//      } else {
+//        cell.imageView.image = [location1Array objectAtIndex:indexPath.row];
+//      }
+      break;
+    default:
+      cell.imageView.image = [subject0Array objectAtIndex:indexPath.row];
+      break;
+  }
   
   return cell;
 }
@@ -134,70 +159,70 @@ NSMutableArray *location1Array;
 
 static void imageSetup(NSMutableArray *imageMutableArray) {
   Image *image1 = [[Image alloc] init];
-  image1.image = [UIImage imageNamed:@"gts0"];
+  image1.imageName = @"gts0";
   image1.subject = @"subject 0";
   image1.location = @"location 0";
   [imageMutableArray addObject:image1];
   NSLog(@"added gts0");
   
   Image *image2 = [[Image alloc] init];
-  image2.image = [UIImage imageNamed:@"gts1"];
+  image2.imageName = @"gts1";
   image2.subject = @"subject 0";
   image2.location = @"location 1";
   [imageMutableArray addObject:image2];
   NSLog(@"added gts1");
   
   Image *image3 = [[Image alloc] init];
-  image3.image = [UIImage imageNamed:@"gts2"];
+  image3.imageName = @"gts2";
   image3.subject = @"subject 1";
   image3.location = @"location 0";
   [imageMutableArray addObject:image3];
   NSLog(@"added gts2");
   
   Image *image4 = [[Image alloc] init];
-  image4.image = [UIImage imageNamed:@"gts3"];
+  image4.imageName = @"gts3";
   image4.subject = @"subject 1";
   image4.location = @"location 1";
   [imageMutableArray addObject:image4];
   NSLog(@"added gts3");
   
   Image *image5 = [[Image alloc] init];
-  image5.image = [UIImage imageNamed:@"gts4"];
+  image5.imageName = @"gts4";
   image5.subject = @"subject 0";
   image5.location = @"location 0";
   [imageMutableArray addObject:image5];
   NSLog(@"added gts4");
   
   Image *image6 = [[Image alloc] init];
-  image6.image = [UIImage imageNamed:@"gts5"];
+  image6.imageName = @"gts5";
   image6.subject = @"subject 0";
   image6.location = @"location 1";
   [imageMutableArray addObject:image6];
   NSLog(@"added gts5");
   
   Image *image7 = [[Image alloc] init];
-  image7.image = [UIImage imageNamed:@"gts6"];
+  image7.imageName = @"gts6";
   image7.subject = @"subject 1";
   image7.location = @"location 0";
   [imageMutableArray addObject:image7];
   NSLog(@"added gts6");
   
   Image *image8 = [[Image alloc] init];
-  image8.image = [UIImage imageNamed:@"gts8"];
+  image8.imageName = @"gts7";
   image8.subject = @"subject 1";
   image8.location = @"location 1";
   [imageMutableArray addObject:image8];
   NSLog(@"added gts8");
   
   Image *image9 = [[Image alloc] init];
-  image9.image = [UIImage imageNamed:@"gts9"];
+  image9.imageName = @"gts8";
   image9.subject = @"subject 0";
   image9.location = @"location 0";
   [imageMutableArray addObject:image9];
   NSLog(@"added gts9");
   
   Image *image10 = [[Image alloc] init];
-  image10.image = [UIImage imageNamed:@"gts10"];
+  image10.imageName = @"gts9";
   image10.subject = @"subject 0";
   image10.location = @"location 1";
   [imageMutableArray addObject:image10];
@@ -208,48 +233,51 @@ static void imageSetup(NSMutableArray *imageMutableArray) {
 
 static void subjectLocationArraysSetup(NSMutableArray *imageMutableArray) {
   
-  NSMutableArray *subject0Array = [[NSMutableArray alloc] init];
+  subject0Array = [[NSMutableArray alloc] init];
   for (int i = 0; i < imageMutableArray.count; i++) {
     Image *tempImage = [[Image alloc] init];
     tempImage = [imageMutableArray objectAtIndex:i];
-    if ([tempImage.subject isEqualToString:@"0"]) {
+    if ([tempImage.subject isEqualToString:@"subject 0"]) {
       [subject0Array addObject:tempImage];
       NSLog(@"added to subject 0 - %d", i);
     }
   }
   
-  NSMutableArray *subject1Array = [[NSMutableArray alloc] init];
+  subject1Array = [[NSMutableArray alloc] init];
   for (int i = 0; i < imageMutableArray.count; i++) {
     Image *tempImage = [[Image alloc] init];
     tempImage = [imageMutableArray objectAtIndex:i];
-    if ([tempImage.subject isEqualToString:@"1"]) {
+    if ([tempImage.subject isEqualToString:@"subject 1"]) {
       [subject1Array addObject:tempImage];
       NSLog(@"added to subject 1 - %d", i);
     }
   }
   
-  NSMutableArray *location0Array = [[NSMutableArray alloc] init];
+  location0Array = [[NSMutableArray alloc] init];
   for (int i = 0; i < imageMutableArray.count; i++) {
     Image *tempImage = [[Image alloc] init];
     tempImage = [imageMutableArray objectAtIndex:i];
-    if ([tempImage.location isEqualToString:@"0"]) {
+    if ([tempImage.location isEqualToString:@"location 0"]) {
       [location0Array addObject:tempImage];
       NSLog(@"added to location 0 - %d", i);
     }
   }
   
-  NSMutableArray *location1Array = [[NSMutableArray alloc] init];
+  location1Array = [[NSMutableArray alloc] init];
   for (int i = 0; i < imageMutableArray.count; i++) {
     Image *tempImage = [[Image alloc] init];
     tempImage = [imageMutableArray objectAtIndex:i];
-    if ([tempImage.location isEqualToString:@"1"]) {
+    if ([tempImage.location isEqualToString:@"location 1"]) {
       [location1Array addObject:tempImage];
       NSLog(@"added to location 1 - %d", i);
     }
   }
   
   subjectMasterArray = [[NSMutableArray alloc] initWithObjects:subject0Array,subject1Array, nil];
+  NSLog(@"subjectmasterarray %lu", subjectMasterArray.count);
   locationMasterArray = [[NSMutableArray alloc] initWithObjects:location0Array,location1Array, nil];
+  NSLog(@"locationmasterarray %lu", locationMasterArray.count);
+
 
 }
 @end

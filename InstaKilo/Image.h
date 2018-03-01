@@ -11,7 +11,7 @@
 
 @interface Image : NSObject
 
-@property (weak, nonatomic) UIImage *image;
+@property (weak, nonatomic) NSString *imageName;
 @property (weak, nonatomic) NSString *subject;
 @property (weak, nonatomic) NSString *location;
 
