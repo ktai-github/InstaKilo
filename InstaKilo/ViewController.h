@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CollectionViewCell.h"
+#import "Image.h"
 
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewCell *collectionViewCell;
+
+@property (weak, nonatomic) NSMutableArray *imageMutableArray;
 
 //@property (weak, nonatomic) IBOutlet CollectionViewCell *collectionViewCell;
 

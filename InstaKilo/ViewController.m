@@ -39,8 +39,11 @@
   NSMutableArray *imageMutableArray = [[NSMutableArray alloc] init];
   for (int i = 0; i < 10; i++) {
     [imageMutableArray addObject:[NSString stringWithFormat: @"gts%d", i]];
+//    Image *image = [[Image alloc] init];
+//    image = [Image ]
     NSLog(@"added gts%d", i);
   }
+  self.imageMutableArray = imageMutableArray;
 }
 
 
@@ -72,15 +75,22 @@
   NSString *cellId;
   switch (indexPath.section) {
     case 0:
-      cellId = @"myDayPics";
+      cellId = @"myPics";
       break;
     case 1:
-      cellId = @"myNightPics";
+      cellId = @"myPics2";
+      break;
     default:
-      cellId = @"myDayPics";
+      cellId = @"myPics";
       break;
   }
-      CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+  NSLog(@"%@", cellId);
+  NSLog(@"section %ld, row %ld", (long)indexPath.section, (long)indexPath.row);
+  CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+  
+  cell.imageView.image = [UIImage imageNamed:@"gts0"];
+//  cell.imageView.backgroundColor = [UIColor blueColor];
+  
       return cell;
 }
 

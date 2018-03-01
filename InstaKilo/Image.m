@@ -9,5 +9,19 @@
 #import "Image.h"
 
 @implementation Image
-
+- (instancetype)init
+{
+//  self = [super init];
+//  if (self) {
+//    switch () {
+//      case <#constant#>:
+//        <#statements#>
+//        break;
+//        
+//      default:
+//        break;
+//    }
+//  }
+  return self;
+}
 @end

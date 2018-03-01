@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Erp-iF-iwn" customClass="CollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myPics" id="Erp-iF-iwn" customClass="CollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -37,6 +37,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sfK-rE-B7g">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -48,6 +49,29 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="sfK-rE-B7g" id="bam-Lh-Z9f"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myPics2" id="RdS-5o-mDY" customClass="CollectionViewCell">
+                                        <rect key="frame" x="67.5" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="141-Ld-vZ8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="141-Ld-vZ8" firstAttribute="leading" secondItem="RdS-5o-mDY" secondAttribute="leading" id="8jl-y3-jW8"/>
+                                            <constraint firstAttribute="bottom" secondItem="141-Ld-vZ8" secondAttribute="bottom" id="HT4-AB-VFa"/>
+                                            <constraint firstAttribute="trailing" secondItem="141-Ld-vZ8" secondAttribute="trailing" id="c3t-Op-Qjm"/>
+                                            <constraint firstItem="141-Ld-vZ8" firstAttribute="top" secondItem="RdS-5o-mDY" secondAttribute="top" id="eKr-fB-OjK"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="141-Ld-vZ8" id="mZB-me-XBp"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
