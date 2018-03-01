@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (weak, nonatomic) NSMutableArray *imageMutableArray;
-@property (nonatomic) long segmentIndex;
+//@property (nonatomic) long segmentIndex;
 
 //@property (weak, nonatomic) IBOutlet CollectionViewCell *collectionViewCell;
 
