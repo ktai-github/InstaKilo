@@ -141,13 +141,34 @@ NSMutableArray *location1Array;
   CollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                      withReuseIdentifier:@"MyHeaderView"
                                                                             forIndexPath:indexPath];
-  headerView.headerLabel.text = [NSString stringWithFormat:@"%lu", self.segmentedControl.selectedSegmentIndex];
+  switch (self.segmentedControl.selectedSegmentIndex) {
+    case 0:
+      if (indexPath.section == 0) {
+//        [subjectMasterArray objectAtIndex:indexPath.section];
+        headerView.headerLabel.text = @"Subject 0";
+      } else {
+        headerView.headerLabel.text = @"Subject 1";
+      }
+      break;
+    case 1:
+      if (indexPath.section == 0) {
+        //        [subjectMasterArray objectAtIndex:indexPath.section];
+        headerView.headerLabel.text = @"Location 0";
+      } else {
+        headerView.headerLabel.text = @"Location 1";
+      }
+      break;
+    default:
+      headerView.headerLabel.text = @"Subject 0";
+      break;
+  }
+//  headerView.headerLabel.text = [NSString stringWithFormat:@"%lu", self.segmentedControl.selectedSegmentIndex];
   return headerView;
 }
 
 - (UICollectionViewFlowLayout *)layoutSetup {
   UICollectionViewFlowLayout *cVLayout = [[UICollectionViewFlowLayout alloc] init];
-  cVLayout.itemSize = CGSizeMake(178, 100);
+  cVLayout.itemSize = CGSizeMake(89, 50);
   cVLayout.sectionInset = UIEdgeInsetsMake(5,5,5,5); //padding around section
   cVLayout.minimumInteritemSpacing = 5; //min horizontal spacing between cells
   cVLayout.minimumLineSpacing = 5; //min vertical spacing
